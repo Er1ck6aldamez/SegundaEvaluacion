@@ -13,16 +13,7 @@ public class Imagenes {
     private Bitmap bitmap;
 
 
-    public Imagenes(String id, String ruta, Bitmap bitmap) {
-        this.id = id;
-        this.ruta = ruta;
-        this.bitmap = bitmap;
-    }
-
-
-    public String getNombre() {
-        return id;
-    }
+    public String getNombre() { return id;  }
 
     public void setNombre(String id) {
         this.id = id;

@@ -35,10 +35,10 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
 
         btnAgregar = findViewById(R.id.btnAgregar);
-        lista = new ArrayList<>();
+        lista = new ArrayList<Imagenes>();
         adaptadorImagen = new AdaptadorImagen(this,lista);
         lst_imagenes = findViewById(R.id.lst_imagenes);
-
+        lst_imagenes.setAdapter(adaptadorImagen);
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,19 +70,12 @@ public class Principal extends AppCompatActivity {
             Bitmap bmp = null;
             try {
 
-                lista = new ArrayList<>();
-                adaptadorImagen = new AdaptadorImagen(this,lista);
-                lst_imagenes = findViewById(R.id.lst_imagenes);
-
-
                 bmp = getBitmapFromUri(selectedImage);
                 if(bmp!=null) {
                     String id = null;
                     String ruta = data.getData().getPath();
 
-
-                    Imagenes img = new Imagenes( id, ruta, bmp);
-
+                    Imagenes img = new Imagenes();
                     img.setBitmap(bmp);
                     img.setRuta(ruta);
                     lista.add(img);
